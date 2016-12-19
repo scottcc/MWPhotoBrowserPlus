@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name = 'MWPhotoBrowserPlus'
-  s.version = '2.1.5'
+  s.version = '2.1.6'
   s.license = 'MIT'
   s.summary = 'A SLIGHTLY MODIFIED simple iOS photo and video browser with optional grid view, captions and selections.'
   s.description = <<-DESCRIPTION
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
 
   s.source = {
     :git => 'https://github.com/scottcc/MWPhotoBrowserPlus.git',
-    :tag => '2.1.5'
+    :tag => '2.1.6'
   }
   s.platform = :ios, '7.0'
   s.source_files = 'Pod/Classes/**/*'
