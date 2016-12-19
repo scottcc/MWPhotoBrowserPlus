@@ -346,17 +346,25 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
 	// Super
 	[super viewWillAppear:animated];
     
+    CGRect statusBarFrame = CGRectZero;
+    UIStatusBarStyle statusBarStyle = UIStatusBarStyleDefault;
+
     // Status bar
     if (!_viewHasAppearedInitially) {
         _leaveStatusBarAlone = [self presentingViewControllerPrefersStatusBarHidden];
+
         // Check if status bar is hidden on first appear, and if so then ignore it
-        if (CGRectEqualToRect([[UIApplication sharedApplication] statusBarFrame], CGRectZero)) {
+#if !defined(MW_APP_EXTENSIONS)
+        statusBarFrame = UIApplication.sharedApplication.statusBarFrame;
+        statusBarStyle = UIApplication.sharedApplication.statusBarStyle;
+#endif
+        if (CGRectEqualToRect(statusBarFrame, CGRectZero)) {
             _leaveStatusBarAlone = YES;
         }
     }
     // Set style
     if (!_leaveStatusBarAlone && UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        _previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
+        _previousStatusBarStyle = statusBarStyle;
         [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:animated];
     }
     
