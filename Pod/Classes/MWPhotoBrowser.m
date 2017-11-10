@@ -7,6 +7,7 @@
 //
 
 #import <QuartzCore/QuartzCore.h>
+#import <MBProgressHUD/MBProgressHUD.h>
 #import "MWCommon.h"
 #import "MWPhotoBrowser.h"
 #import "MWPhotoBrowserPrivate.h"
